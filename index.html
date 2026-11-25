@@ -309,7 +309,8 @@ const VOICE={
   duck(){[0,.18,.36].forEach(d=>tone({type:'square',f:330,f2:240,t:.13,v:.16,delay:d,filter:{type:'bandpass',f:1100,q:3}}))},
   shark(){noise({t:.7,v:.4,f:300,f2:1800,q:1.5});[.1,.25,.4,.55].forEach(d=>tone({f:rand(400,700),f2:rand(900,1300),t:.08,v:.15,delay:d}))}
 };
-function say(txt){try{const s=window.speechSynthesis;if(!s)return;s.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='ko-KR';u.rate=.95;u.pitch=1.4;const v=s.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('ko'));if(v)u.voice=v;s.speak(u)}catch(e){}}
+const VOICE_ON=false; /* 말소리(음성 읽기) 끔. true로 바꾸면 다시 켜져요 */
+function say(txt){if(!VOICE_ON)return;try{const s=window.speechSynthesis;if(!s)return;s.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='ko-KR';u.rate=.95;u.pitch=1.4;const v=s.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('ko'));if(v)u.voice=v;s.speak(u)}catch(e){}}
 /* 실제 녹음: sounds 폴더에 cow.mp3 dog.mp3 cat.mp3 duck.mp3 shark.mp3 를 넣으면 그 소리가 나요. 없으면 합성 소리를 써요. */
 const REAL={};
 KEYS.forEach(k=>{try{const a=new Audio(`sounds/${k}.mp3`);a.preload='auto';const r={a,ok:false};a.addEventListener('canplaythrough',()=>r.ok=true,{once:true});a.addEventListener('error',()=>r.ok=false);REAL[k]=r}catch(e){}});
