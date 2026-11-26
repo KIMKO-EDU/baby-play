@@ -30,14 +30,14 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:none}
 .mtop h1{margin:0;font-size:clamp(28px,6vmin,56px);font-weight:400;line-height:1.05;display:flex;align-items:center;gap:1.5vmin}
 .mtop h1 svg{width:9vmin;height:9vmin}
 .mbtn{border:0;background:#fff;border-radius:99px;padding:1.4vmin 2.8vmin;min-height:44px;font-size:clamp(14px,2.4vmin,20px);box-shadow:0 .5vmin 0 #0000001a}
-.grid{flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3vmin;padding:2vmin 0}
+.grid{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3vmin;padding:2vmin 0}
 .tile{border:0;border-radius:5vmin;background:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1vmin;box-shadow:inset 0 -1.4vmin 0 #00000014;transition:transform .15s;padding:2vmin}
 .tile:active{transform:scale(.93)}
 .tile .ic{width:58%;max-width:26vmin;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
 .tile .ic svg{width:100%;height:100%}
 .tile .lb{font-size:clamp(14px,3vmin,26px);opacity:.8}
 .hint{font-size:clamp(13px,2.1vmin,18px);opacity:.55;text-align:center}
-@media (orientation:portrait){.grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}.tile .ic{width:48%}}
+@media (orientation:portrait){.grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr))}.tile .ic{width:48%}}
 
 /* 놀이 무대 + 집 버튼 */
 #act{position:absolute;inset:0;overflow:hidden}
@@ -64,8 +64,8 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:none}
 .a-color .pal{display:grid;grid-template-columns:repeat(2,9.5vmin);gap:2vmin;padding-top:12vmin;align-content:center}
 .sw{width:9.5vmin;height:9.5vmin;border-radius:50%;border:.6vmin solid #fff;box-shadow:0 .6vmin 0 #00000026;transition:transform .15s;padding:0}
 .sw.sel{transform:scale(1.18);outline:.7vmin solid var(--ink);outline-offset:.3vmin}
-.board{flex:1;align-self:stretch;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:5vmin;box-shadow:inset 0 -1vmin 0 #0000000d;padding:2vmin}
-.board svg{width:min(86vmin,100%);height:auto;max-height:100%}
+.board{flex:1;align-self:stretch;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:5vmin;box-shadow:inset 0 -1vmin 0 #0000000d;padding:3vmin}
+.board svg{width:100%;height:100%}
 .board .p{transition:fill .25s}
 .a-color .pick{display:flex;flex-direction:column;gap:1.6vmin}
 .pk{width:12vmin;height:12vmin;border-radius:3vmin;border:0;background:#fff;padding:1vmin;box-shadow:0 .5vmin 0 #0000001a}
@@ -164,6 +164,40 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:none}
 .slot.open .critter svg{transform:none;opacity:1}
 .blanket{position:absolute;inset:0;border:.8vmin solid var(--ink);border-radius:9vmin 9vmin 3vmin 3vmin;transition:transform .5s cubic-bezier(.3,1.2,.5,1);transform-origin:50% 100%;z-index:2;box-shadow:0 1vmin 0 #0000001f}
 .slot.open .blanket{transform:scaleY(.16)}
+
+/* 9 불빛 놀이판 */
+.a-lights{display:flex;align-items:center;gap:3vmin;padding:3vmin 3vmin 3vmin 15vmin;background:#14162b}
+.lwrap{flex:1;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.lboard{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));gap:1vmin;padding:1.6vmin;background:#232742;border-radius:3vmin;box-shadow:inset 0 -1vmin 0 #0000004d}
+.lc{border-radius:50%;background:#30365a;box-shadow:inset 0 -.4vmin 0 #00000059;transition:background .15s,box-shadow .2s}
+.lc.on{background:hsl(var(--h),95%,62%);box-shadow:0 0 1.8vmin hsl(var(--h),95%,62%),inset 0 .5vmin .6vmin #ffffff99}
+.lside{display:flex;flex-direction:column;gap:3vmin}
+.lbtn{width:15vmin;height:15vmin;border-radius:4vmin;border:0;background:#30365a;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 -1vmin 0 #00000059;padding:1vmin}
+.lbtn .big{font-size:8vmin;line-height:1;color:#ffd84d}
+.lbtn small{font-size:clamp(13px,2vmin,18px);opacity:.75}
+.lbtn svg{width:7vmin;height:7vmin}
+.lbtn:active{transform:scale(.94)}
+@media (orientation:portrait){.a-lights{flex-direction:column;padding:15vmin 3vmin 3vmin}.lside{flex-direction:row}}
+
+/* 10 동물 세기 농장 */
+.a-count{display:flex;flex-direction:column;background:linear-gradient(#bfe6ff 0 26%,#8fd46f 26%)}
+.pens{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4vmin;padding:9vmin 3vmin 3vmin 15vmin}
+.pen{position:relative;background:#b4e69a;border:1vmin solid #c98d52;border-radius:3vmin;display:flex;padding:8vmin 1.5vmin 1.5vmin;transition:box-shadow .3s}
+.pen::before{content:"";position:absolute;left:-1vmin;right:-1vmin;top:-3vmin;height:3vmin;background:repeating-linear-gradient(90deg,#c98d52 0 1.6vmin,transparent 1.6vmin 5vmin);pointer-events:none}
+.pen.done{box-shadow:0 0 0 1vmin #ffd84d,0 0 4vmin #ffd84d}
+.yard{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1vmin}
+.crow{display:flex;justify-content:center;gap:1vmin;flex:none}
+.ca{flex:none}
+.ca svg{width:100%;height:100%}
+.sign{position:absolute;top:-6vmin;left:50%;transform:translateX(-50%);width:min(12vmin,8.5vw);height:min(14vmin,10vw);border:.6vmin dashed #3a2e2a73;border-radius:2.5vmin;background:#fff8e1d9;display:flex;align-items:center;justify-content:center;font-size:7vmin;z-index:2}
+.sign:empty::after{content:"?";opacity:.35}
+.sign .ncard{box-shadow:none}
+.cards{flex:none;display:flex;justify-content:center;align-items:center;gap:1.5vmin;padding:2vmin 3vmin;background:#fff6e0;border-top:.8vmin solid #e2c799}
+.cslot{width:min(12vmin,8.5vw);height:min(14vmin,10vw)}
+.ncard{width:100%;height:100%;background:#fff;border-radius:2.5vmin;display:flex;align-items:center;justify-content:center;font-size:min(9vmin,6.5vw);line-height:1;box-shadow:0 .8vmin 0 #00000026;border:.5vmin solid #3a2e2a26}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2vmin)}75%{transform:translateX(2vmin)}}
+.shake{animation:shake .35s ease 2}
+@media (orientation:portrait){.pens{grid-template-columns:minmax(0,1fr);gap:8vmin;padding:15vmin 4vmin 3vmin}.cards{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -341,7 +375,7 @@ function actColor(root){
     b.onpointerdown=()=>{cur=c;pal.querySelectorAll('.sw').forEach(x=>x.classList.toggle('sel',x===b));SFX.note(i+1)}});
   KEYS.forEach(k=>{const b=$('button','pk',pk,animalSVG(k));b.dataset.k=k;b.onpointerdown=()=>{load(k);SFX.whoosh()}});
   const star=$('button','pk star',pk,shapeSVG('star','#fff'));star.onpointerdown=()=>{fin()};
-  function load(k){animal=k;done=false;board.innerHTML=animalSVG(k,true);pk.querySelectorAll('.pk[data-k]').forEach(b=>b.classList.toggle('sel',b.dataset.k===k))}
+  function load(k){animal=k;done=false;board.innerHTML=animalSVG(k,true);try{const sv=board.querySelector('svg'),b=sv.getBBox(),m=10;sv.setAttribute('viewBox',`${b.x-m} ${b.y-m} ${b.width+m*2} ${b.height+m*2}`)}catch(e){}pk.querySelectorAll('.pk[data-k]').forEach(b=>b.classList.toggle('sel',b.dataset.k===k))}
   function fin(){const s=board.querySelector('svg');s.classList.remove('wiggle');void s.getBoundingClientRect();s.classList.add('wiggle');speak(animal);celebrate()}
   function paintAt(x,y){
     const el=document.elementFromPoint(x,y);
@@ -512,10 +546,76 @@ function actPeek(root){
   root.classList.add('a-peek');
   const BL=['radial-gradient(circle,#ffffff99 22%,transparent 24%) 0 0/7vmin 7vmin,#ff8fc8','repeating-linear-gradient(45deg,#5ab0ff 0 3vmin,#8cc8ff 3vmin 6vmin)','repeating-conic-gradient(#ffd84d 0 25%,#ffe98f 0 50%) 0 0/8vmin 8vmin'];
   BL.forEach(bg=>{const s=$('div','slot',root,'<div class="critter"></div><div class="bub">까꿍!</div><div class="blanket"></div>');s.querySelector('.blanket').style.background=bg;
-    const cr=s.querySelector('.critter');let k=pick(KEYS);cr.innerHTML=animalSVG(k);
-    s.onpointerdown=()=>{if(s.classList.contains('open'))return;s.classList.add('open');SFX.whoosh();say('까꿍!');later(()=>cry(k),700);
+    const cr=s.querySelector('.critter');let k=null;
+    s.onpointerdown=()=>{if(s.classList.contains('open'))return;k=pick(KEYS.filter(x=>x!==k));cr.innerHTML=animalSVG(k);void cr.offsetWidth;s.classList.add('open');SFX.whoosh();say('까꿍!');later(()=>cry(k),700);
       const r=s.getBoundingClientRect();later(()=>burst(r.left+r.width/2,r.top+r.height*.4,{n:12,emoji:['✨','⭐'],size:16,spread:150}),200);
-      later(()=>{s.classList.remove('open');later(()=>{k=pick(KEYS);cr.innerHTML=animalSVG(k)},500)},2800)}});
+      later(()=>s.classList.remove('open'),2800)}});
+}
+
+
+/* ---------- 9. 불빛 놀이판 ---------- */
+const DIG={0:['01110','10001','10011','10101','11001','10001','01110'],1:['00100','01100','00100','00100','00100','00100','01110'],2:['01110','10001','00001','00010','00100','01000','11111'],3:['11111','00010','00100','00010','00001','10001','01110'],4:['00010','00110','01010','10010','11111','00010','00010'],5:['11111','10000','11110','00001','00001','10001','01110'],6:['00110','01000','10000','11110','10001','10001','01110'],7:['11111','00001','00010','00100','01000','01000','01000'],8:['01110','10001','10001','01110','10001','10001','01110'],9:['01110','10001','10001','01111','00001','00010','01100']};
+function actLights(root){
+  root.classList.add('a-lights');
+  root.innerHTML=`<div class="lwrap"><div class="lboard"></div></div><div class="lside"><button class="lbtn num"><span class="big">1</span><small>숫자</small></button><button class="lbtn off"><svg viewBox="0 0 100 130"><circle cx="50" cy="48" r="38" fill="#30365a" stroke="#fff" stroke-width="6"/><rect x="34" y="86" width="32" height="26" rx="5" fill="#9aa5b1" stroke="#fff" stroke-width="6"/></svg><small>모두 끄기</small></button></div>`;
+  const C=12,R=8,board=root.querySelector('.lboard'),wrap=root.querySelector('.lwrap');const cells=[];
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++){const d=$('div','lc',board);d.style.setProperty('--h',Math.round(c*330/C));cells.push({d,r,c,on:false})}
+  const cellAt=(r,c)=>cells[r*C+c];
+  function set(cell,on,quiet){if(!cell||cell.on===on)return;cell.on=on;cell.d.classList.toggle('on',on);if(quiet)return;if(on)SFX.note(R-1-cell.r+2);else tone({f:180,t:.06,v:.08})}
+  function fit(){const w=wrap.clientWidth,h=wrap.clientHeight,u=Math.min(w/C,h/R);board.style.width=u*C+'px';board.style.height=u*R+'px'}
+  const ro=new ResizeObserver(fit);ro.observe(wrap);fit();
+  function pos(x,y){const b=board.getBoundingClientRect();if(x<b.left||x>b.right||y<b.top||y>b.bottom)return null;return {c:Math.min(C-1,Math.floor((x-b.left)/b.width*C)),r:Math.min(R-1,Math.floor((y-b.top)/b.height*R))}}
+  board.onpointerdown=e=>{const p=pos(e.clientX,e.clientY);if(!p)return;const first=cellAt(p.r,p.c),mode=!first.on;set(first,mode);let lx=e.clientX,ly=e.clientY;
+    dragging(e,ev=>{const st=board.getBoundingClientRect().width/C/3,d=Math.hypot(ev.clientX-lx,ev.clientY-ly),n=Math.max(1,Math.ceil(d/st));
+      for(let i=1;i<=n;i++){const q=pos(lx+(ev.clientX-lx)*i/n,ly+(ev.clientY-ly)*i/n);if(q)set(cellAt(q.r,q.c),mode)}lx=ev.clientX;ly=ev.clientY})};
+  let num=1,drawId=0;const numBtn=root.querySelector('.num'),big=numBtn.querySelector('.big');
+  numBtn.onpointerdown=()=>{const id=++drawId;cells.forEach(c=>set(c,false,true));
+    const ds=String(num).split(''),w=ds.length*5+ds.length-1,c0=Math.floor((C-w)/2),r0=Math.floor((R-7)/2);const todo=[];
+    ds.forEach((dg,j)=>DIG[dg].forEach((row,r)=>[...row].forEach((v,c)=>{if(v==='1')todo.push(cellAt(r0+r,c0+j*6+c))})));
+    todo.forEach((cell,i)=>later(()=>{if(id===drawId)set(cell,true)},i*55));
+    num=num%10+1;big.textContent=num};
+  root.querySelector('.off').onpointerdown=()=>{drawId++;let k=0;for(let c=0;c<C;c++){const col=c;later(()=>{let any=false;for(let r=0;r<R;r++){const cell=cellAt(r,col);if(cell.on){any=true;set(cell,false,true)}}if(any)tone({f:700-col*40,t:.08,v:.08})},col*30)}};
+  return ()=>ro.disconnect();
+}
+
+/* ---------- 10. 동물 세기 농장 ---------- */
+function actCount(root){
+  root.classList.add('a-count');
+  const LAY={1:[1],2:[2],3:[3],4:[2,2],5:[2,1,2],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3]};
+  const NCOL=['#ff5d5d','#ff9f1c','#d9a400','#3fae66','#3d8fd6','#8a63e6','#e5609f','#a0673c','#22a596','#f06a3b'];
+  let pens=[];
+  const hop=a=>{a.classList.remove('hop');void a.offsetWidth;a.classList.add('hop')};
+  function layoutPen(p){const r=p.yard.getBoundingClientRect(),rows=LAY[p.n],mc=Math.max(...rows),gap=innerHeight/100;
+    const sz=Math.min((r.width-gap*(mc-1))/Math.max(mc,2),(r.height-gap*(rows.length-1))/rows.length)*.92;
+    p.yard.querySelectorAll('.ca').forEach(a=>{a.style.width=a.style.height=sz+'px'})}
+  const relayout=()=>pens.forEach(layoutPen);
+  addEventListener('resize',relayout);
+  function build(){
+    root.innerHTML='<div class="pens"></div><div class="cards"></div>';
+    const pensEl=root.querySelector('.pens'),cardsEl=root.querySelector('.cards');
+    const ns=shuffle([1,2,3,4,5,6,7,8,9,10]).slice(0,3),ks=shuffle(KEYS).slice(0,3);let solved=0;
+    pens=ns.map((n,i)=>{const el=$('div','pen',pensEl,'<div class="sign"></div><div class="yard"></div>'),yard=el.querySelector('.yard'),k=ks[i];
+      LAY[n].forEach(cnt=>{const row=$('div','crow',yard);for(let j=0;j<cnt;j++){const a=$('div','ca',row,animalSVG(k));a.firstChild.style.animation=`bob 2.6s ease-in-out ${-rand(0,2.6)}s infinite`;a.onpointerdown=()=>{hop(a);cry(k)}}});
+      return {el,yard,sign:el.querySelector('.sign'),n,k,done:false}});
+    requestAnimationFrame(relayout);
+    for(let n=1;n<=10;n++){const slot=$('div','cslot',cardsEl),cd=$('div','ncard',slot,String(n));cd.style.color=NCOL[n-1];
+      cd.onpointerdown=e=>{if(cd.dataset.in)return;const r=cd.getBoundingClientRect(),ox=e.clientX-r.left,oy=e.clientY-r.top;SFX.tick();
+        Object.assign(cd.style,{position:'fixed',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',zIndex:30,transition:'none',transform:'scale(1.12) rotate(-4deg)'});
+        dragging(e,ev=>{cd.style.left=ev.clientX-ox+'px';cd.style.top=ev.clientY-oy+'px'},ev=>{
+          const p=pens.find(p=>{const b=p.el.getBoundingClientRect(),sb=p.sign.getBoundingClientRect();const inR=(x,y,q)=>x>=q.left&&x<=q.right&&y>=q.top&&y<=q.bottom;return inR(ev.clientX,ev.clientY,b)||inR(ev.clientX,ev.clientY,sb)});
+          const ok=p&&!p.done&&p.n===n,tr=(ok?p.sign:slot).getBoundingClientRect();
+          cd.style.transition='left .25s,top .25s,transform .25s,width .25s,height .25s';Object.assign(cd.style,{left:tr.left+'px',top:tr.top+'px',width:tr.width+'px',height:tr.height+'px',transform:'none'});
+          if(!ok){SFX.boing();if(p&&!p.done){p.el.classList.remove('shake');void p.el.offsetWidth;p.el.classList.add('shake')}later(()=>cd.removeAttribute('style'),260);return}
+          cd.dataset.in=1;p.done=true;SFX.snap();
+          later(()=>{cd.removeAttribute('style');p.sign.appendChild(cd);cd.classList.add('pop-in');p.el.classList.add('done')},260);
+          later(()=>cry(p.k),300);
+          const as=[...p.yard.querySelectorAll('.ca')];
+          as.forEach((a,i)=>later(()=>{hop(a);SFX.note(i);const b=a.getBoundingClientRect();burst(b.left+b.width/2,b.top,{n:4,size:8,spread:30,dur:500})},1100+i*330));
+          if(++solved===3){const end=1100+as.length*330+300;later(celebrate,end);later(build,end+3000)}
+        })}}
+  }
+  build();
+  return ()=>removeEventListener('resize',relayout);
 }
 
 /* ---------- 메뉴와 이동 ---------- */
@@ -523,6 +623,8 @@ const doorIcon=`<svg viewBox="0 0 100 100"><rect x="22" y="10" width="56" height
 const sparkIcon=`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#1b1f3b"/><g transform="translate(50 50)">${shapeSVG('star','#ffd84d').replace('<svg viewBox="0 0 100 100">','<svg x="-28" y="-30" width="56" height="56" viewBox="0 0 100 100">')}</g><circle cx="24" cy="30" r="4" fill="#ff8fc8"/><circle cx="76" cy="72" r="5" fill="#5ab0ff"/><circle cx="74" cy="26" r="3" fill="#fff"/></svg>`;
 const peekIcon=`<svg viewBox="0 0 100 100"><svg x="10" y="6" width="80" height="80" viewBox="0 0 200 200">${ANIMALS.cat.draw(c=>c,false)}</svg><path d="M6 62 Q50 50 94 62 V94 H6Z" fill="#ff8fc8" ${S4}/><circle cx="28" cy="78" r="4" fill="#fff"/><circle cx="50" cy="72" r="4" fill="#fff"/><circle cx="72" cy="80" r="4" fill="#fff"/></svg>`;
 const shapesIcon=`<svg viewBox="0 0 100 100"><svg x="2" y="2" width="46" height="46" viewBox="0 0 100 100"><g fill="#ff5d5d" ${S}>${SHAPES.circle}</g></svg><svg x="52" y="2" width="46" height="46" viewBox="0 0 100 100"><g fill="#5ab0ff" ${S}>${SHAPES.square}</g></svg><svg x="2" y="52" width="46" height="46" viewBox="0 0 100 100"><g fill="#7bd389" ${S}>${SHAPES.tri}</g></svg><svg x="52" y="52" width="46" height="46" viewBox="0 0 100 100"><g fill="#ffd84d" ${S}>${SHAPES.star}</g></svg></svg>`;
+const lightsIcon=`<svg viewBox="0 0 100 100"><rect x="4" y="4" width="92" height="92" rx="16" fill="#232742"/>${[...Array(16)].map((_,i)=>{const c=i%4,r=i/4|0,on=[1,4,5,9,13,12,14].includes(i);return `<circle cx="${20+c*20}" cy="${20+r*20}" r="7.5" fill="${on?`hsl(${c*80},95%,62%)`:'#30365a'}"/>`}).join('')}</svg>`;
+const countIcon=`<svg viewBox="0 0 100 100"><rect x="6" y="42" width="88" height="52" rx="10" fill="#b4e69a" stroke="#c98d52" stroke-width="5"/>${[16,38,60].map(x=>`<svg x="${x}" y="54" width="26" height="26" viewBox="0 0 200 200">${ANIMALS.duck.draw(c=>c,false)}</svg>`).join('')}<rect x="34" y="4" width="32" height="34" rx="7" fill="#fff" ${S4}/><text x="50" y="31" text-anchor="middle" font-size="27" font-family="Jua,sans-serif" fill="#e5609f">3</text></svg>`;
 const ACTS=[
   {lb:'색칠놀이',c:'#ffd6d6',ic:animalSVG('cow'),fn:actColor},
   {lb:'조작 놀이판',c:'#ffe6b8',ic:doorIcon,fn:actBusy},
@@ -530,7 +632,9 @@ const ACTS=[
   {lb:'풍선 터뜨리기',c:'#d4f4dd',ic:balloonSVG('#ff5d5d'),fn:actBalloon},
   {lb:'모양 맞추기',c:'#cfe8ff',ic:shapesIcon,fn:actShapes},
   {lb:'농장 꾸미기',c:'#e3d9ff',ic:barnSVG,fn:actFarm},
+  {lb:'동물 세기',c:'#ffe0c2',ic:countIcon,fn:actCount},
   {lb:'반짝반짝',c:'#ffd9ef',ic:sparkIcon,fn:actSpark},
+  {lb:'불빛 놀이판',c:'#d6dcff',ic:lightsIcon,fn:actLights},
   {lb:'까꿍 놀이',c:'#d9f2f2',ic:peekIcon,fn:actPeek}
 ];
 const menu=document.getElementById('menu'),stage=document.getElementById('stage'),act=document.getElementById('act'),grid=document.getElementById('grid'),home=document.getElementById('home'),toast=document.getElementById('toast');
